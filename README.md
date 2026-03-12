@@ -1,10 +1,8 @@
 # Live Working Diabetes Prediction System
 
-# Created using Antigravity
+# Created using Replit tool
 
-# Hosted on the Vercel cloud platform
- live-link:- https://live-diabetes-prediction-system.vercel.app/
-
+# live-link:- https://diabetes-predictor--x15abhi.replit.app/
 
 # Full Name: Abhishek Pawar
 
@@ -47,4 +45,4 @@ project/
    ```
 
 4. Open your web browser and go to:
-   https://live-diabetes-prediction-system.vercel.app/
+   https://diabetes-predictor--x15abhi.replit.app/
