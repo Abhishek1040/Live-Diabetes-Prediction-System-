@@ -7,8 +7,11 @@ app = Flask(__name__)
 
 # Load the trained model and scaler
 # Make sure model.py has been run first to generate these files
-MODEL_PATH = 'model.pkl'
-SCALER_PATH = 'scaler.pkl'
+ 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "scaler.pkl")
 
 if os.path.exists(MODEL_PATH) and os.path.exists(SCALER_PATH):
     with open(MODEL_PATH, 'rb') as f:
