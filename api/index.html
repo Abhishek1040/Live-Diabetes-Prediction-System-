@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus, input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .diabetic {
+            background-color: #fde8e8;
+            color: #c0392b;
+            border: 1px solid #fadbd8;
+        }
+        .not-diabetic {
+            background-color: #eafaf1;
+            color: #27ae60;
+            border: 1px solid #d5f5e3;
+        }
+        .error {
+            background-color: #fdf2e9;
+            color: #e67e22;
+            border: 1px solid #fae5d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction System</h1>
+        
+        <!-- Form to collect user input for the 8 features -->
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="Pregnancies">Pregnancies:</label>
+                <input type="number" id="Pregnancies" name="Pregnancies" min="0" step="1" required placeholder="e.g. 1">
+            </div>
+            
+            <div class="form-group">
+                <label for="Glucose">Glucose:</label>
+                <input type="number" id="Glucose" name="Glucose" min="0" step="any" required placeholder="e.g. 85">
+            </div>
+            
+            <div class="form-group">
+                <label for="BloodPressure">BloodPressure:</label>
+                <input type="number" id="BloodPressure" name="BloodPressure" min="0" step="any" required placeholder="e.g. 66">
+            </div>
+            
+            <div class="form-group">
+                <label for="SkinThickness">SkinThickness:</label>
+                <input type="number" id="SkinThickness" name="SkinThickness" min="0" step="any" required placeholder="e.g. 29">
+            </div>
+            
+            <div class="form-group">
+                <label for="Insulin">Insulin:</label>
+                <input type="number" id="Insulin" name="Insulin" min="0" step="any" required placeholder="e.g. 0">
+            </div>
+            
+            <div class="form-group">
+                <label for="BMI">BMI:</label>
+                <input type="number" id="BMI" name="BMI" min="0" step="any" required placeholder="e.g. 26.6">
+            </div>
+            
+            <div class="form-group">
+                <label for="DiabetesPedigreeFunction">DiabetesPedigreeFunction:</label>
+                <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" min="0" step="any" required placeholder="e.g. 0.351">
+            </div>
+            
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" min="0" step="1" required placeholder="e.g. 31">
+            </div>
+            
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Displaying output result based on prediction -->
+        {% if result %}
+            {% if "not diabetic" in result %}
+                <div class="result not-diabetic">{{ result }}</div>
+            {% elif "is diabetic" in result %}
+                <div class="result diabetic">{{ result }}</div>
+            {% else %}
+                <div class="result error">{{ result }}</div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
