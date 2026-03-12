@@ -1,5 +1,19 @@
-# Diabetes Prediction System
+# Live Working Diabetes Prediction System
 
+# Created using Antigravity
+
+# Hosted on the Vercel cloud platform
+ live-link:- https://live-diabetes-prediction-system.vercel.app/
+
+
+# Full Name: Abhishek Pawar
+
+# skill track: AI & Machine Learning - Python
+
+# Email ID: abhishek.p.pawar1999@gmail.com
+
+# College Name: Sambhram academy of management studies, Bengaluru
+ 
 A complete Machine Learning web application using Python, Flask, and Scikit-learn to predict diabetes.
 
 ## Project Structure
