@@ -3,8 +3,13 @@ import numpy as np
 import pickle
 import os
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, "templates"),
+    static_folder=os.path.join(BASE_DIR, "static")
+)
 # Load the trained model and scaler
 # Make sure model.py has been run first to generate these files
  
