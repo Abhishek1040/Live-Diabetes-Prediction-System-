@@ -1,2 +1,36 @@
-# Live-Diabetes-Prediction-System-
-Built a machine learning-based web application to predict diabetes using patient health parameters. Implemented data preprocessing, feature scaling, model training, and evaluation using Scikit-learn. Deployed the trained model using Flask and Pickle, enabling real-time predictions through a user-friendly web interface.
+# Diabetes Prediction System
+
+A complete Machine Learning web application using Python, Flask, and Scikit-learn to predict diabetes.
+
+## Project Structure
+```
+project/
+│
+├── app.py             # Main Flask application with routing
+├── diabetes.csv       # Pima Indians Diabetes Dataset
+├── model.py           # ML Model training script (runs SVM)
+├── templates/
+│   └── index.html     # Frontend HTML form UI
+└── README.md          # Project documentation
+```
+
+## Setup Instructions
+
+1. Install dependencies:
+   ```bash
+   pip install flask pandas scikit-learn numpy
+   ```
+
+2. Train the model:
+   This will read `diabetes.csv`, train a Support Vector Machine (SVM) model using a linear kernel, print the accuracy, and save the model (`model.pkl`) and scaler (`scaler.pkl`).
+   ```bash
+   python model.py
+   ```
+
+3. Run the Flask web application:
+   ```bash
+   python app.py
+   ```
+
+4. Open your web browser and go to:
+   http://127.0.0.1:5000
